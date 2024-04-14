@@ -4,7 +4,7 @@ import (
 	"log"
 	"strings"
 
-	echo "github.com/UWNetworksLab/adn-controller/grpc/pb"
+	echo "github.com/appnet-org/appnet/grpc/echoservice/pb"
 	"golang.org/x/net/context"
 
 	"google.golang.org/grpc"

@@ -8,8 +8,7 @@ import (
 
 	"golang.org/x/net/context"
 
-	"github.com/UWNetworksLab/adn-controller/grpc/interceptorloader"
-	echo "github.com/UWNetworksLab/adn-controller/grpc/pb"
+	echo "github.com/appnet-org/appnet/grpc/echoservice/pb"
 	"google.golang.org/grpc"
 )
 
@@ -38,12 +37,8 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 
-	interceptInit := interceptorloader.LoadInterceptors("/echoserver/severalinterceptorsplugin/severalinterceptorsplugin.so")
-
 	s := grpc.NewServer(
-		grpc.ChainUnaryInterceptor(
-			interceptInit.ServerInterceptors()...,
-		),
+		grpc.ChainUnaryInterceptor(),
 	)
 	fmt.Printf("Starting server pod at port 9000\n")
 

@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	services "github.com/UWNetworksLab/adn-controller/envoy/services"
+	services "github.com/appnet-org/appnet/envoy/services"
 )
 
 type server interface {
@@ -15,13 +15,13 @@ type server interface {
 func main() {
 	// Define the flags to specify port numbers and addresses
 	var (
-		frontendPort     = flag.Int("frontend", 8080, "frontend server port")
-		pingPort       = flag.Int("pingport", 8081, "ping service port")
-		pongPort       = flag.Int("pongport", 8082, "pong service port")
+		frontendPort = flag.Int("frontend", 8080, "frontend server port")
+		pingPort     = flag.Int("pingport", 8081, "ping service port")
+		pongPort     = flag.Int("pongport", 8082, "pong service port")
 
 		// Change ping:8081 to :8081 when running localiy
-		pingAddr      = flag.String("pingaddr", "ping:8081", "ping service address")
-		pongAddr      = flag.String("pongaddr", "pong:8082", "pong service addr")
+		pingAddr = flag.String("pingaddr", "ping:8081", "ping service address")
+		pongAddr = flag.String("pongaddr", "pong:8082", "pong service addr")
 	)
 
 	// Parse the flags

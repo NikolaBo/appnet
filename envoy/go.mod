@@ -1,4 +1,4 @@
-module github.com/UWNetworksLab/adn-controller/envoy
+module github.com/appnet-org/appnet/envoy
 
 go 1.18
 

@@ -6,23 +6,23 @@ import (
 	"log"
 	"net/http"
 
-	ping "github.com/UWNetworksLab/adn-controller/envoy/ping_pb"
-	pong "github.com/UWNetworksLab/adn-controller/envoy/pong_pb"
+	ping "github.com/appnet-org/appnet/envoy/ping_pb"
+	pong "github.com/appnet-org/appnet/envoy/pong_pb"
 )
 
 // Frontend implements a service that acts as an interface to interact with different microservices.
 type Frontend struct {
-	port            int
-	pingClient      ping.PingServiceClient
-	pongClient      pong.PongServiceClient
+	port       int
+	pingClient ping.PingServiceClient
+	pongClient pong.PongServiceClient
 }
 
 // NewFrontend creates a new Frontend instance with the specified configuration.
 func NewFrontend(port int, pingaddr string, pongaddr string) *Frontend {
 	f := &Frontend{
-		port:            port,
-		pingClient:      ping.NewPingServiceClient(dial(pingaddr)),
-		pongClient:      pong.NewPongServiceClient(dial(pongaddr)),
+		port:       port,
+		pingClient: ping.NewPingServiceClient(dial(pingaddr)),
+		pongClient: pong.NewPongServiceClient(dial(pongaddr)),
 	}
 	return f
 }
@@ -116,4 +116,3 @@ func (s *Frontend) pingPongHandler(w http.ResponseWriter, r *http.Request) {
 
 	err = json.NewEncoder(w).Encode(reply)
 }
-

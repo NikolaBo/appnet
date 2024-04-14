@@ -1,4 +1,4 @@
-package hotswapinterceptor
+package plugininterceptor
 
 import (
 	"log"
@@ -7,7 +7,6 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/UWNetworksLab/adn-controller/grpc/interceptorloader"
 	"golang.org/x/net/context"
 
 	"google.golang.org/grpc"
@@ -23,7 +22,7 @@ func ClientInterceptor(pluginPathPrefix string) grpc.UnaryClientInterceptor {
 		if lastName != fileName && fileName != "" {
 			lastName = fileName
 
-			interceptInit := interceptorloader.LoadInterceptors(fileName)
+			interceptInit := loadInterceptors(fileName)
 			interceptors := interceptInit.ClientInterceptors()
 			log.Println("loaded new client interceptors")
 			log.Printf("interceptors: %v\n", interceptors)

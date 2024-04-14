@@ -5,10 +5,11 @@ import (
 	"fmt"
 	"log"
 	"net"
+
 	// "time"
 
-	ping "github.com/UWNetworksLab/adn-controller/envoy/ping_pb"
-	pong "github.com/UWNetworksLab/adn-controller/envoy/pong_pb"
+	ping "github.com/appnet-org/appnet/envoy/ping_pb"
+	pong "github.com/appnet-org/appnet/envoy/pong_pb"
 	"google.golang.org/grpc"
 )
 
@@ -17,16 +18,16 @@ type Ping struct {
 	name string
 	port int
 	ping.PingServiceServer
-	pongClient      pong.PongServiceClient
+	pongClient    pong.PongServiceClient
 	request_count int
 }
 
 // NewPing returns a new server
 func NewPing(name string, pingPort int, pongaddr string) *Ping {
 	return &Ping{
-		name:      name,
-		port:      pingPort,
-		pongClient:      pong.NewPongServiceClient(dial(pongaddr)),
+		name:       name,
+		port:       pingPort,
+		pongClient: pong.NewPongServiceClient(dial(pongaddr)),
 	}
 }
 
@@ -84,4 +85,3 @@ func (s *Ping) PingPong(ctx context.Context, req *ping.PingPongRequest) (*ping.P
 	// Return the response object and any error.
 	return pingPongResponse, err
 }
-

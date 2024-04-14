@@ -9,19 +9,17 @@ import (
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 
-	"github.com/UWNetworksLab/adn-controller/grpc/interceptorloader"
-	echo "github.com/UWNetworksLab/adn-controller/grpc/pb"
+	echo "github.com/appnet-org/appnet/grpc/echoservice/pb"
+	"github.com/appnet-org/appnet/grpc/plugininterceptor"
 )
 
 func initHandler() (func(writer http.ResponseWriter, request *http.Request), func()) {
-
-	interceptInit := interceptorloader.LoadInterceptors("/echofrontend/severalinterceptorsplugin/severalinterceptorsplugin.so")
 
 	conn, err := grpc.Dial(
 		"server:9000",
 		grpc.WithInsecure(),
 		grpc.WithChainUnaryInterceptor(
-			interceptInit.ClientInterceptors()...,
+			plugininterceptor.ClientInterceptor("/interceptors.so"),
 		),
 	)
 	if err != nil {

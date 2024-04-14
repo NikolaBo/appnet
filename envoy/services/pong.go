@@ -6,7 +6,7 @@ import (
 	"log"
 	"net"
 
-	pong "github.com/UWNetworksLab/adn-controller/envoy/pong_pb"
+	pong "github.com/appnet-org/appnet/envoy/pong_pb"
 	"google.golang.org/grpc"
 )
 
@@ -20,8 +20,8 @@ type Pong struct {
 // NewPong returns a new server
 func NewPong(name string, pongPort int) *Pong {
 	return &Pong{
-		name:      name,
-		port:      pongPort,
+		name: name,
+		port: pongPort,
 	}
 }
 

@@ -1,4 +1,4 @@
-module github.com/UWNetworksLab/adn-controller/envoy/elements/hello
+module github.com/appnet-org/appnet/envoy/elements/hello
 
 go 1.19
 

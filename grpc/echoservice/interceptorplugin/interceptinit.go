@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/UWNetworksLab/adn-controller/grpc/interceptors/acl"
-	"github.com/UWNetworksLab/adn-controller/grpc/interceptors/cache"
-	"github.com/UWNetworksLab/adn-controller/grpc/interceptors/fault"
-	"github.com/UWNetworksLab/adn-controller/grpc/interceptors/mutate"
+	"github.com/appnet-org/appnet/grpc/echoservice/interceptors/acl"
+	"github.com/appnet-org/appnet/grpc/echoservice/interceptors/cache"
+	"github.com/appnet-org/appnet/grpc/echoservice/interceptors/fault"
+	"github.com/appnet-org/appnet/grpc/echoservice/interceptors/mutate"
 	"google.golang.org/grpc"
 )
 
