@@ -3,6 +3,7 @@ package services
 import (
 	"fmt"
 
+	"github.com/appnet-org/appnet/grpc/plugininterceptor"
 	"google.golang.org/grpc"
 )
 
@@ -11,6 +12,7 @@ func dial(addr string) *grpc.ClientConn {
 	// Define gRPC dial options for the client connection.
 	opts := []grpc.DialOption{
 		grpc.WithInsecure(),
+		grpc.WithChainUnaryInterceptor(plugininterceptor.ClientInterceptor("/appnetinterceptor")),
 	}
 
 	// Create a new gRPC client connection to the specified address using the dial options.
@@ -23,4 +25,3 @@ func dial(addr string) *grpc.ClientConn {
 	// Return the created client connection object.
 	return conn
 }
-

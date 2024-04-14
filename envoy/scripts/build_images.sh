@@ -28,7 +28,7 @@ $EXEC system prune -af
 # rebuild, tag, push new image(s)
 echo Processing image ${IMAGE}
 # build and tag image
-$EXEC build -t "$USER"/"$IMAGE":"$TAG" -f Dockerfile .
+$EXEC build -t "$USER"/"$IMAGE":"$TAG" -f Dockerfile ..
 $EXEC push "$USER"/"$IMAGE":"$TAG"
 echo
 
