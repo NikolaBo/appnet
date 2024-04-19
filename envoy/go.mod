@@ -4,6 +4,7 @@ go 1.22.1
 
 require (
 	github.com/appnet-org/appnet/grpc/plugininterceptor v0.0.0-00010101000000-000000000000
+	github.com/appnet-org/appnet/ping-pb v0.0.0-00010101000000-000000000000
 	google.golang.org/grpc v1.63.2
 	google.golang.org/protobuf v1.33.0
 )
@@ -16,3 +17,5 @@ require (
 )
 
 replace github.com/appnet-org/appnet/grpc/plugininterceptor => ../grpc/plugininterceptor
+
+replace github.com/appnet-org/appnet/ping-pb => ../ping_pb

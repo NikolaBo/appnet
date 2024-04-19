@@ -6,8 +6,8 @@ import (
 	"log"
 	"net/http"
 
-	ping "github.com/appnet-org/appnet/envoy/ping_pb"
 	pong "github.com/appnet-org/appnet/envoy/pong_pb"
+	ping "github.com/appnet-org/appnet/ping-pb"
 )
 
 // Frontend implements a service that acts as an interface to interact with different microservices.

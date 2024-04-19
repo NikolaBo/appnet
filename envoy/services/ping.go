@@ -8,8 +8,8 @@ import (
 
 	// "time"
 
-	ping "github.com/appnet-org/appnet/envoy/ping_pb"
 	pong "github.com/appnet-org/appnet/envoy/pong_pb"
+	ping "github.com/appnet-org/appnet/ping-pb"
 	"google.golang.org/grpc"
 )
 
